@@ -5,7 +5,7 @@ import { SliderContainer } from "./styles";
 
 // import swiper slider
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Navigation } from "swiper";
+import SwiperCore, { Navigation , Autoplay} from "swiper";
 
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -16,13 +16,18 @@ import 'swiper/css/navigation'
 
 function MainSlider() {
     const [url, setUrl] = useState([])
+    const [title, setTitle] = useState([])
 
-    SwiperCore.use([Navigation])
+    SwiperCore.use([Navigation, Autoplay])
 
     async function getPoster(name, index) {
-        const film = await axios.get(`http://www.omdbapi.com/?apikey=3ae69467&s=${name}`); 
-        let data = film.data.Search[index].Poster
-        setUrl(currentList => [...currentList, data]);
+        const film = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=bdadbcdd7ea9e811044fec7cfcc65261&language=en-US&query=${name}`); 
+
+        let banner = film.data.results[index].backdrop_path;
+        let title = film.data.results[index].title;
+
+        setUrl(currentList => [...currentList, banner]);
+        setTitle(currentList => [...currentList, title]);
     }
 
     useEffect(() => {
@@ -34,13 +39,24 @@ function MainSlider() {
     return (
         <SliderContainer>
             <Swiper
-                spaceBetween={50}
-                slidesPerView={1}
+                spaceBetween={650}
+                slidesPerView={3}
                 loop='true'
                 navigation
+                autoplay
             >
-                {url.map((index) => {
-                    return <SwiperSlide><img src={index}></img></SwiperSlide>
+                {url.length !== 0 && url.map((banner, index) => {
+                    let h1 = title[index];
+                    return (
+                            <SwiperSlide>
+                                <div className="content">
+                                    <img src={`http://image.tmdb.org/t/p/w500/${banner}`}></img>
+                                    <div className="title">
+                                        <h1>{h1}</h1>
+                                    </div>
+                                </div>
+                            </SwiperSlide>
+                        )
                 })}
             </Swiper>
         </SliderContainer>
