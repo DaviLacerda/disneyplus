@@ -20,8 +20,8 @@ function MainSlider() {
 
     SwiperCore.use([Navigation, Autoplay])
 
-    async function getPoster(name, index) {
-        const film = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=bdadbcdd7ea9e811044fec7cfcc65261&language=en-US&query=${name}`); 
+    async function getPoster(index) {
+        const film = await axios.get(`https://api.themoviedb.org/3/trending/all/week?api_key=bdadbcdd7ea9e811044fec7cfcc65261`); 
 
         let banner = film.data.results[index].backdrop_path;
         let title = film.data.results[index].title;
@@ -32,18 +32,19 @@ function MainSlider() {
 
     useEffect(() => {
         for(let i = 0; i < 6; i++){
-            getPoster('star wars', i);
+            getPoster(i);
         }
     }, [])
 
     return (
         <SliderContainer>
             <Swiper
-                spaceBetween={650}
-                slidesPerView={3}
+                spaceBetween={100}
+                slidesPerView={1}
                 loop='true'
                 navigation
                 autoplay
+                centeredSlides='true'
             >
                 {url.length !== 0 && url.map((banner, index) => {
                     let h1 = title[index];
