@@ -3,6 +3,9 @@ import { useState, useEffect } from "react";
 
 import { SliderContainer } from "./styles";
 
+// import Banners
+import banners from "../../assets/banners/banners";
+
 // import swiper slider
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation , Autoplay} from "swiper";
@@ -10,29 +13,22 @@ import SwiperCore, { Navigation , Autoplay} from "swiper";
 import 'swiper/css'
 import 'swiper/css/navigation'
 
-// import images
-// import img1 from '../../assets/img1.jpg'
-// import img2 from '../../assets/img2.jpg'
-
 function MainSlider() {
     const [url, setUrl] = useState([])
-    const [title, setTitle] = useState([])
+    const [logo, setLogo] = useState([])
 
     SwiperCore.use([Navigation, Autoplay])
 
-    async function getPoster(index) {
-        const film = await axios.get(`https://api.themoviedb.org/3/trending/all/week?api_key=bdadbcdd7ea9e811044fec7cfcc65261`); 
+    let arrayWithBanners = banners;
 
-        let banner = film.data.results[index].backdrop_path;
-        let title = film.data.results[index].title;
-
-        setUrl(currentList => [...currentList, banner]);
-        setTitle(currentList => [...currentList, title]);
+    function getPoster(param) {   
+        setUrl(currentList => [...currentList, param.banner]);
+        setLogo(currentList => [...currentList, param.logo]);
     }
 
     useEffect(() => {
-        for(let i = 0; i < 6; i++){
-            getPoster(i);
+        for(let i = 0; i < arrayWithBanners.length; i++){
+            getPoster(arrayWithBanners[i])
         }
     }, [])
 
@@ -47,13 +43,13 @@ function MainSlider() {
                 centeredSlides='true'
             >
                 {url.length !== 0 && url.map((banner, index) => {
-                    let h1 = title[index];
+                    let title = logo[index];
                     return (
                             <SwiperSlide>
                                 <div className="content">
-                                    <img src={`http://image.tmdb.org/t/p/w500/${banner}`}></img>
+                                    <img src={banner}></img>
                                     <div className="title">
-                                        <h1>{h1}</h1>
+                                        <img src={title}></img>
                                     </div>
                                 </div>
                             </SwiperSlide>
