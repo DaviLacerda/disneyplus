@@ -74,7 +74,32 @@ function Header() {
             </div>
 
             <div className="right">
-                <div className="right__avatar"></div>
+                <div className="dropdown">
+                    <div className="icon">
+                        <h2>Davi Lacerda</h2>
+                        <div className="dropdown__avatar"></div>
+                    </div>
+                    <div className="social">
+                        <div className="social__content">
+                            <a href="https://linkedin.com/in/davi16lacerda" target="blank">
+                                <h3>LinkedIn</h3>
+                                <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="davi16lacerda" height="24" width="24"/>
+                            </a>
+                        </div>
+                        <div className="social__content">
+                            <a href="https://instagram.com/davi.frontend" target="blank">
+                                <h3>Instagram</h3>
+                                <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="davi.frontend" height="24" width="24" />
+                            </a>
+                        </div>
+                        <div className="social__content">
+                            <a href="mailto:davi16lacerda@gmail.com?subject=Digite%20o%20assunto%20aqui" target="_blank">
+                                <h3>Email</h3>
+                                <img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" alt="davi16lacerda@gmail.com" height="24" width="24" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </StyledHeader>
     )

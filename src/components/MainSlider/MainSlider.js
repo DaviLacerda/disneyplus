@@ -44,13 +44,21 @@ function MainSlider() {
             >
                 {url.length !== 0 && url.map((banner, index) => {
                     let title = logo[index];
-                    return (
+                    if(index == 0 || index == 5 || index == 6){
+                        return (
                             <SwiperSlide>
                                 <div className="content">
                                     <img src={banner}></img>
-                                    <div className="title">
-                                        <img src={title}></img>
-                                    </div>
+                                    <img src={title} className="overlay"></img>
+                                </div>
+                            </SwiperSlide>
+                        )
+                    }
+                    else return (
+                            <SwiperSlide>
+                                <div className="content">
+                                    <img src={banner}></img>
+                                    <img src={title}></img>
                                 </div>
                             </SwiperSlide>
                         )

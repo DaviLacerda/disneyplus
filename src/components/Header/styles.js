@@ -38,6 +38,10 @@ export const StyledHeader = styled.header`
         z-index:-1;
     }
 
+    @media(max-width:480px){
+        gap:20px;
+    }
+
     .left{
         display:flex;
         flex-direction:row;
@@ -158,18 +162,121 @@ export const StyledHeader = styled.header`
     }
 
     .right{
-        min-height:48px;
+        display:flex;
+        flex-direction:row;
+        align-items:center;
+        justify-content:center;
+        gap:12px;
+
+        position:relative;
+
         height:48px;
+        width:186px;
 
-        min-width:48px;
-        width:48px;
+        &:hover{
+            cursor:pointer;
+        }
 
-        .right__avatar{
-            background: url(https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/FA2F31B77164DD87A4CE9B9E3A056EB7DFB2C06D318C9B65B2E930F990EF4D94/scale?width=96&format=png) 0% 0% / contain no-repeat;
-            border-radius:50%;
+        &:hover .dropdown{
+            height:fit-content;
+            background-color:#131313;
+            border:.4px solid #fff2;
 
-            width:100%;
-            height:100%;
+            .social{
+                display:flex;
+            }
+        }
+
+        .dropdown{
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+
+            position:absolute;
+            top:0;
+            left:0;
+
+            border:.4px solid #fff0;
+            border-radius:12px;
+
+            transition:.5s;
+            will-change:height;
+
+            .icon{
+                display:flex;
+                flex-direction:row;
+                align-items:center;
+                gap:12px;
+
+                padding: 0 12px;
+
+                h2{
+                    font-family:'Nunito',sans-serif;
+                    font-weight:lighter;
+                    font-size:1em;
+                    min-width:100px;
+                    width:fit-content;
+
+                    @media(max-width:480px){
+                        display:none;
+                    }
+                }
+
+                .dropdown__avatar{
+                    background: url(https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/FA2F31B77164DD87A4CE9B9E3A056EB7DFB2C06D318C9B65B2E930F990EF4D94/scale?width=96&format=png) 0% 0% / contain no-repeat;
+                    border-radius:50%;
+
+                    width:48px;
+                    height:48px;
+                }
+            }
+
+            .social{
+                display:none;
+                flex-direction:column;
+                align-items:center;
+                gap:12px;
+
+                padding:12px;
+
+                .social__content{
+                    a{
+                        display:flex;
+                        align-items:center;
+                        flex-direction:row;
+                        gap:12px;
+
+                        text-decoration:none;
+                        color:inherit;
+
+                        &:visited{
+                            color:inherit;
+                        }
+
+                        h3{
+                            font-family:'Nunito',sans-serif;
+                            font-weight:lighter;
+                            font-size:0.975em;
+                            color:#fff5;
+
+                            transition:color .5s;
+                            will-change:color;
+                        }
+
+                        &:hover{
+                            h3{
+                                color:#fff;
+                            }
+                        }
+
+                        img{
+                            @media(max-width:900px){
+                                display:none;
+                            }
+                        }
+                    }
+                }
+            }            
         }
     }
 `;

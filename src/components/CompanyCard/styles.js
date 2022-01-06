@@ -6,12 +6,17 @@ export const CompanyContainer = styled.div`
     place-content:center space-evenly;  
     flex-wrap:wrap;
 
-    margin-top:5vh;
+    margin-top:2.5vh;
 
     padding:16px;
 
     width:100%;
     height:calc(20% - 20px);
+
+
+    @media(max-width:600px){
+        gap:10px;
+    }
 
     .card{
         display:flex;
@@ -39,6 +44,10 @@ export const CompanyContainer = styled.div`
             video{
                 opacity:1;
             }
+        }
+
+        @media(max-width:600px){
+            width:30%;
         }
 
         img{

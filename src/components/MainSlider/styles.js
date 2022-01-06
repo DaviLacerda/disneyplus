@@ -5,14 +5,14 @@ export const SliderContainer = styled.div`
 
     width:100%;
 
-    margin-top:20vh;
+    margin-top:18.5vh;
 
     @media(min-width:481px){
-        margin-top:15vh;
+        margin-top:10vh;
     }
 
     @media(min-width:900px){
-        margin-top:10vh;
+        margin-top:7.5vh;
     }
 
     .swiper-button-next, .swiper-button-prev{
@@ -49,7 +49,7 @@ export const SliderContainer = styled.div`
             padding:16px 32px;
 
             @media(max-width:600px){
-                height:500px;
+                height:350px;
             }
 
             &:hover{
@@ -57,7 +57,7 @@ export const SliderContainer = styled.div`
 
                 img:not(:last-child){
                     filter:brightness(0.9);
-                    outline:3px solid #fff;
+                    border:3px solid #f0f0f0;
                 }
             }
 
@@ -69,13 +69,13 @@ export const SliderContainer = styled.div`
                 box-shadow: 0px 7px 17px -1px #000000;
 
                 filter:brightness(0.75);
-                outline:3px solid #fff0;
-                transition:filter .5s, outline .5s;
-                will-change:filter outline;
+                border:3px solid #fff0;
+                transition:filter .5s, border .5s;
+                will-change:filter border;
                 
                 object-fit:cover;
 
-                border-radius:20px;
+                border-radius:8px;
 
                 @media(max-width:300px){
                     object-position:69.5%;
@@ -86,23 +86,29 @@ export const SliderContainer = styled.div`
                 }
             }
 
-            .title{
-                img{
-                    position: absolute;
-                    top: 50%;
-                    left:15%;
-                    transform: translateY(-50%); 
+            
+            .overlay{
+                position:absolute !important;
+                top:15% !important;
 
-                    width:auto;
-                    height:75%;
+                width:27% !important;
+                left:10% !important;
+                height:fit-content !important;
+            }
 
-                    @media(max-width:600px){
-                        width:208px;
-                        height:auto;
+            img:last-child{
+                position: absolute;
+                top: 0;
 
-                        top:25%;
-                        left:10%;
-                    }
+                width:100%;
+                height:100%;
+
+                @media(max-width:600px){
+                    width:100%;
+                    height:auto;
+
+                    top:3vh;
+                    left:5vw;
                 }
             }
         }
