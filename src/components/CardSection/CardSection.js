@@ -6,6 +6,7 @@ import { CardsContainer } from "./styles";
 import RecommendedCards from '../../assets/cards/recommended'
 import NewCards from '../../assets/cards/news'
 import AcclaimedCards from '../../assets/cards/acclaimed'
+import StarWarsCards from '../../assets/cards/starwars'
 
 // import swiper slider
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -16,6 +17,7 @@ function CardSection() {
     const [recommendedCard, setRecommendedCard] = useState([])
     const [newCard, setNewCard] = useState([])
     const [acclaimedCard, setAcclaimedCard] = useState([])
+    const [starWarsCard, setStarWarsCard] = useState([])
 
     SwiperCore.use([Navigation])
 
@@ -30,6 +32,10 @@ function CardSection() {
 
         for(let k = 0; k < AcclaimedCards.length ; k++){
             setAcclaimedCard(currentList => [...currentList, AcclaimedCards[k].card]);
+        }
+
+        for(let s = 0; s < StarWarsCards.length ; s++){
+            setStarWarsCard(currentList => [...currentList, StarWarsCards[s].card]);
         }
     }, [])
 
@@ -55,6 +61,7 @@ function CardSection() {
                         })}
                     </Swiper>
                 </SliderContainer>
+
                 <h3>New to Disney+</h3>
                 <SliderContainer className='contentSlider__slider'>
                     <Swiper
@@ -74,6 +81,7 @@ function CardSection() {
                         })}
                     </Swiper>
                 </SliderContainer>
+
                 <h3>Critically Acclaimed</h3>
                 <SliderContainer className='contentSlider__slider'>
                     <Swiper
@@ -93,6 +101,27 @@ function CardSection() {
                         })}
                     </Swiper>
                 </SliderContainer>
+
+                <h3>Star Wars</h3>
+                <SliderContainer className='contentSlider__slider'>
+                    <Swiper
+                    spaceBetween={20}
+                    slidesPerView={5}
+                    slidesPerGroup={5}
+                    navigation
+                    >
+                        {starWarsCard.length && starWarsCard.map((starWarsImage) => {
+                            return (
+                                <SwiperSlide>
+                                    <div className="contentSlider__content">
+                                        <img src={starWarsImage}></img>
+                                    </div>
+                                </SwiperSlide>
+                            )
+                        })}
+                    </Swiper>
+                </SliderContainer>
+                
             </section>
         </CardsContainer>
     )
