@@ -13,7 +13,6 @@ export const CompanyContainer = styled.div`
     width:100%;
     height:calc(20% - 20px);
 
-
     @media(max-width:600px){
         gap:10px;
     }
@@ -29,16 +28,15 @@ export const CompanyContainer = styled.div`
         height:100%;
 
         background-image: linear-gradient(rgb(58, 60, 74), rgb(36, 38, 50));
-        border-radius: 6px;
         box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px, rgb(0 0 0 / 73%) 0px 16px 10px -10px;
 
-        border:4px solid #D5D9E140;
-        border-radius:20px;
+        border:3px solid #D5D9E140;
+        border-radius:12px;
         transition: all .5s;
 
         &:hover{
             cursor:pointer;
-            border:4px solid #D5D9E1;
+            border:3px solid #f0f0f0;
             transform:scale(1.05);
 
             video{
@@ -69,8 +67,9 @@ export const CompanyContainer = styled.div`
 
             height:100%;
             width:100%;
+
             object-fit:cover;
-            border-radius:16px;
+            border-radius:8px;
         }
     }
 `;

@@ -5,22 +5,20 @@ export const SliderContainer = styled.div`
 
     width:100%;
 
-    margin-top:18.5vh;
-
-    @media(min-width:481px){
-        margin-top:10vh;
-    }
+    margin-top:19.5vh;
 
     @media(min-width:900px){
         margin-top:7.5vh;
     }
 
-    .swiper-button-next, .swiper-button-prev{
-        color:rgb(249, 249, 249);
-        
-        &:after{
-            font-size:2em;
-        }
+    .swiper-button-next:hover::after, .swiper-button-prev:hover::after{
+        color:#f0f0f0;
+    }
+
+    .swiper-button-next:after, .swiper-button-prev:after{
+        color:#f0f0f000;
+        font-size:3em;
+        transition:color .3s;
     }
 
     .swiper{
@@ -52,15 +50,6 @@ export const SliderContainer = styled.div`
                 height:350px;
             }
 
-            &:hover{
-                cursor:pointer;
-
-                img:not(:last-child){
-                    filter:brightness(0.9);
-                    border:3px solid #f0f0f0;
-                }
-            }
-
             img:not(:last-child){
                 width:100%;
                 height:100%;
@@ -84,15 +73,21 @@ export const SliderContainer = styled.div`
                 @media(min-width:300px){
                     object-position:76.5%;
                 }
+
+                &:hover{
+                    cursor:pointer;
+                    filter:brightness(0.9);
+                    border:3px solid #f0f0f0;
+                }
             }
 
             
             .overlay{
                 position:absolute !important;
-                top:15% !important;
+                top:6vh !important;
+                left:10vw !important;
 
-                width:27% !important;
-                left:10% !important;
+                width:32.5% !important;
                 height:fit-content !important;
             }
 
@@ -102,6 +97,8 @@ export const SliderContainer = styled.div`
 
                 width:100%;
                 height:100%;
+
+                pointer-events:none;
 
                 @media(max-width:600px){
                     width:100%;

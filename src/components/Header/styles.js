@@ -14,11 +14,12 @@ export const StyledHeader = styled.header`
     min-height:72px;
     height:fit-content;
 
-    padding:0 20px;
+    padding:0 20px 20px;
 
     display:flex;
     align-items:center;
     justify-content:space-between;
+    flex-wrap:wrap;
 
     will-change:background-color;
     transition:.5s;
@@ -39,14 +40,18 @@ export const StyledHeader = styled.header`
     }
 
     @media(max-width:480px){
-        gap:20px;
+        flex-direction:column;
+
+        .right{
+            width:100% !important;
+        }
     }
 
     .left{
         display:flex;
         flex-direction:row;
         align-items:center;
-        flex-wrap: wrap;
+        
         gap:25px;
 
         height:50%;
@@ -98,8 +103,12 @@ export const StyledHeader = styled.header`
                 justify-content:center;
                 
                 color:#fff;
-                font-size:2em;
+                font-size:4.75vw;
                 font-weight:bold;
+
+                @media(min-width:769px){
+                    font-size:2em;
+                }
             }
 
             p{
@@ -178,12 +187,14 @@ export const StyledHeader = styled.header`
         }
 
         &:hover .dropdown{
-            height:fit-content;
-            background-color:#131313;
-            border:.4px solid #fff2;
-
-            .social{
-                display:flex;
+            @media(min-width:1200px){
+                height:fit-content;
+                background-color:#131313;
+                border:.4px solid #fff2;
+                
+                .social{
+                    display:flex;
+                }
             }
         }
 
@@ -192,15 +203,17 @@ export const StyledHeader = styled.header`
             flex-direction:column;
             align-items:center;
 
-            position:absolute;
-            top:0;
-            left:0;
-
             border:.4px solid #fff0;
             border-radius:12px;
 
             transition:.5s;
             will-change:height;
+
+            @media(min-width:481px){
+                position:absolute;
+                top:0;
+                left:0;
+            }
 
             .icon{
                 display:flex;

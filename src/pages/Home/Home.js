@@ -2,6 +2,7 @@
 import Header from "../../components/Header/Header";
 import MainSlider from "../../components/MainSlider/MainSlider";
 import CompanyCard from "../../components/CompanyCard/CompanyCard";
+import CardSection from "../../components/CardSection/CardSection";
 
 function Home() {
     return (
@@ -9,6 +10,7 @@ function Home() {
             <Header></Header>
             <MainSlider></MainSlider>
             <CompanyCard></CompanyCard>
+            <CardSection></CardSection>
         </>
     )
 }
