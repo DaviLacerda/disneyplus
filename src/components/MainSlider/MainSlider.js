@@ -38,7 +38,7 @@ function MainSlider() {
                 slidesPerView={1}
                 loop='true'
                 navigation
-                autoplay
+                autoplay={{delay: 6000}}
                 centeredSlides='true'
             >
                 {url.length !== 0 && url.map((banner, index) => {
