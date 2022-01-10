@@ -50,7 +50,7 @@ export const CardsContainer = styled.section`
             }
 
             .swiper-wrapper{
-                height:fit-content;
+                min-height:fit-content;
             }
 
             .contentSlider__content{
@@ -64,8 +64,7 @@ export const CardsContainer = styled.section`
                     object-fit:cover;
                     border-radius:6px;
 
-                    background-image: linear-gradient(rgb(58, 60, 74), rgb(36, 38, 50));
-                    box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px, rgb(0 0 0 / 73%) 0px 16px 10px -10px;
+                    box-shadow: 0px 7px 14px 0px #000000;
 
                     border:3px solid #D5D9E140;
                     transition:all .3s;

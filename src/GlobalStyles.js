@@ -34,7 +34,7 @@ export const GlobalStyles = createGlobalStyle`
 
     body{
         background-color:#2A2F3F;
-        min-height:200vh;
+        min-height:100vh;
         width:100%;
 
         color:#f9f9f9;

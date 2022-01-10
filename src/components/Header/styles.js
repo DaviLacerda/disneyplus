@@ -111,6 +111,15 @@ export const StyledHeader = styled.header`
                 }
             }
 
+            a{
+                text-decoration:none;
+                color:inherit;
+
+                &:visited{
+                    color:inherit;
+                }
+            }
+
             p{
                 height:90%;
 
@@ -170,126 +179,63 @@ export const StyledHeader = styled.header`
         }
     }
 
-    .right{
+    .right a{
         display:flex;
         flex-direction:row;
         align-items:center;
-        justify-content:center;
         gap:12px;
 
-        position:relative;
+        padding: 0 12px;
 
-        height:48px;
-        width:186px;
+        text-decoration:none;
+        color:inherit;
 
-        &:hover{
-            cursor:pointer;
+        &:visited{
+            color:inherit;
         }
 
-        &:hover .dropdown{
-            @media(min-width:1200px){
-                height:fit-content;
-                background-color:#131313;
-                border:.4px solid #fff2;
-                
-                .social{
-                    display:flex;
-                }
-            }
-        }
+        h2{
+            font-family:'Nunito',sans-serif;
+            font-weight:lighter;
+            font-size:1em;
+            min-width:100px;
+            width:fit-content;
+            position:relative;
 
-        .dropdown{
-            display:flex;
-            flex-direction:column;
-            align-items:center;
-
-            border:.4px solid #fff0;
-            border-radius:12px;
-
-            transition:.5s;
-            will-change:height;
-
-            @media(min-width:481px){
-                position:absolute;
-                top:0;
-                left:0;
-            }
-
-            .icon{
-                display:flex;
-                flex-direction:row;
-                align-items:center;
-                gap:12px;
-
-                padding: 0 12px;
-
-                h2{
-                    font-family:'Nunito',sans-serif;
-                    font-weight:lighter;
-                    font-size:1em;
-                    min-width:100px;
-                    width:fit-content;
-
-                    @media(max-width:480px){
-                        display:none;
-                    }
-                }
-
-                .dropdown__avatar{
-                    background: url(https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/FA2F31B77164DD87A4CE9B9E3A056EB7DFB2C06D318C9B65B2E930F990EF4D94/scale?width=96&format=png) 0% 0% / contain no-repeat;
-                    border-radius:50%;
-
-                    width:48px;
-                    height:48px;
-                }
-            }
-
-            .social{
+            @media(max-width:480px){
                 display:none;
-                flex-direction:column;
-                align-items:center;
-                gap:12px;
+            }
 
-                padding:12px;
+            &:hover{
+                cursor:pointer;
 
-                .social__content{
-                    a{
-                        display:flex;
-                        align-items:center;
-                        flex-direction:row;
-                        gap:12px;
-
-                        text-decoration:none;
-                        color:inherit;
-
-                        &:visited{
-                            color:inherit;
-                        }
-
-                        h3{
-                            font-family:'Nunito',sans-serif;
-                            font-weight:lighter;
-                            font-size:0.975em;
-                            color:#fff5;
-
-                            transition:color .5s;
-                            will-change:color;
-                        }
-
-                        &:hover{
-                            h3{
-                                color:#fff;
-                            }
-                        }
-
-                        img{
-                            @media(max-width:900px){
-                                display:none;
-                            }
-                        }
-                    }
+                &:after{
+                    width:100%;
                 }
-            }            
+            }
+
+            &:after{
+                content: "";
+                position: absolute; 
+
+                bottom: -4px;
+                left: 0;
+            
+                display: block;
+                height: 2px;
+                width: 0;
+                
+                background: #fff;
+                transition: width 0.3s ease;
+            }
+        }
+
+        .dropdown__avatar{
+            background: url(https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/FA2F31B77164DD87A4CE9B9E3A056EB7DFB2C06D318C9B65B2E930F990EF4D94/scale?width=96&format=png) 0% 0% / contain no-repeat;
+            border-radius:50%;
+
+            width:48px;
+            height:48px;
         }
     }
 `;

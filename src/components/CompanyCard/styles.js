@@ -26,9 +26,7 @@ export const CompanyContainer = styled.div`
 
         width: calc(18.5% - 20px);
         height:100%;
-
-        background-image: linear-gradient(rgb(58, 60, 74), rgb(36, 38, 50));
-        box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px, rgb(0 0 0 / 73%) 0px 16px 10px -10px;
+        box-shadow: 0px 7px 14px 0px #000000;
 
         border:3px solid #D5D9E140;
         border-radius:12px;
@@ -38,6 +36,7 @@ export const CompanyContainer = styled.div`
             cursor:pointer;
             border:3px solid #f0f0f0;
             transform:scale(1.05);
+            box-shadow: 0px 14px 14px 0px #000000;
 
             video{
                 opacity:1;
