@@ -15,6 +15,7 @@ import 'swiper/css/navigation'
 function MainSlider() {
     const [url, setUrl] = useState([])
     const [logo, setLogo] = useState([])
+    const [redirect, setRedirect] = useState([])
 
     SwiperCore.use([Navigation, Autoplay])
 
@@ -23,6 +24,7 @@ function MainSlider() {
     function getPoster(param) {   
         setUrl(currentList => [...currentList, param.banner]);
         setLogo(currentList => [...currentList, param.logo]);
+        setRedirect(currentList => [...currentList, param.name.toLowerCase().replace(/\s/g,"-")]);
     }
 
     useEffect(() => {
@@ -42,13 +44,14 @@ function MainSlider() {
                 centeredSlides='true'
             >
                 {url.length !== 0 && url.map((banner, index) => {
-                    let title = logo[index];
                     if(index == 0 || index == 5 || index == 6){
                         return (
                             <SwiperSlide>
                                 <div className="content">
-                                    <img src={banner}></img>
-                                    <img src={title} className="overlay"></img>
+                                    <a href={redirect[index]}>
+                                        <img src={banner}></img>
+                                        <img src={logo[index]} className="overlay"></img>
+                                    </a>
                                 </div>
                             </SwiperSlide>
                         )
@@ -56,8 +59,10 @@ function MainSlider() {
                     else return (
                             <SwiperSlide>
                                 <div className="content">
-                                    <img src={banner}></img>
-                                    <img src={title}></img>
+                                    <a href={redirect[index]}>
+                                        <img src={banner}></img>
+                                        <img src={logo[index]}></img>
+                                    </a>
                                 </div>
                             </SwiperSlide>
                         )

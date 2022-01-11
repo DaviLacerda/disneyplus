@@ -39,8 +39,6 @@ export const SliderContainer = styled.div`
             align-items:center;
             justify-content:center;
 
-            position:relative;
-
             width:100%;
             height:100%;
 
@@ -48,6 +46,19 @@ export const SliderContainer = styled.div`
 
             @media(max-width:600px){
                 height:350px;
+            }
+
+            a{
+                position:relative;
+            }
+
+            .overlay{
+                position:absolute !important;
+                top:6vh !important;
+                left:10vw !important;
+
+                width:32.5% !important;
+                height:fit-content !important;
             }
 
             img:not(:last-child){
@@ -81,19 +92,10 @@ export const SliderContainer = styled.div`
                 }
             }
 
-            
-            .overlay{
-                position:absolute !important;
-                top:6vh !important;
-                left:10vw !important;
-
-                width:32.5% !important;
-                height:fit-content !important;
-            }
-
             img:last-child{
                 position: absolute;
                 top: 0;
+                left:0;
 
                 width:100%;
                 height:100%;

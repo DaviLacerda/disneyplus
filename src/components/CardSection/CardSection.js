@@ -15,27 +15,42 @@ import { SliderContainer } from '../MainSlider/styles';
 
 function CardSection() {
     const [recommendedCard, setRecommendedCard] = useState([])
+    const [recommendedRedirect, setRecommendedRedirect] = useState([])
+
     const [newCard, setNewCard] = useState([])
+    const [newRedirect, setNewRedirect] = useState([])
+
     const [acclaimedCard, setAcclaimedCard] = useState([])
+    const [acclaimedRedirect, setAcclaimedRedirect] = useState([])
+
     const [starWarsCard, setStarWarsCard] = useState([])
+    const [starWarsRedirect, setStarWarsRedirect] = useState([])
 
     SwiperCore.use([Navigation])
 
     useEffect(() => {
         for(let i = 0; i < RecommendedCards.length ; i++){
             setRecommendedCard(currentList => [...currentList, RecommendedCards[i].card]);
+            setRecommendedRedirect(currentList => [...currentList, RecommendedCards[i].name.toLowerCase().replace
+        (/\s/g,"-")])
         }
         
         for(let j = 0; j < NewCards.length ; j++){
             setNewCard(currentList => [...currentList, NewCards[j].card]);
+            setNewRedirect(currentList => [...currentList, NewCards[j].name.toLowerCase().replace
+        (/\s/g,"-")])
         }
 
         for(let k = 0; k < AcclaimedCards.length ; k++){
             setAcclaimedCard(currentList => [...currentList, AcclaimedCards[k].card]);
+            setAcclaimedRedirect(currentList => [...currentList, AcclaimedCards[k].name.toLowerCase().replace
+        (/\s/g,"-")])
         }
 
         for(let s = 0; s < StarWarsCards.length ; s++){
             setStarWarsCard(currentList => [...currentList, StarWarsCards[s].card]);
+            setStarWarsRedirect(currentList => [...currentList, StarWarsCards[s].name.toLowerCase().replace
+        (/\s/g,"-")])
         }
     }, [])
 
@@ -50,11 +65,13 @@ function CardSection() {
                     slidesPerGroup={5}
                     navigation
                     >
-                        {recommendedCard.length && recommendedCard.map((recommendedImage) => {
+                        {recommendedCard.length && recommendedCard.map((recommendedImage, recommendedIndex) => {
                             return (
                                 <SwiperSlide>
                                     <div className="contentSlider__content">
-                                        <img src={recommendedImage}></img>
+                                        <a href={recommendedRedirect[recommendedIndex]}>
+                                            <img src={recommendedImage}></img>
+                                        </a>                
                                     </div>
                                 </SwiperSlide>
                             )
@@ -70,11 +87,13 @@ function CardSection() {
                     slidesPerGroup={5}
                     navigation
                     >
-                        {newCard.length && newCard.map((newImage) => {
+                        {newCard.length && newCard.map((newImage, newIndex) => {
                             return (
                                 <SwiperSlide>
                                     <div className="contentSlider__content">
-                                        <img src={newImage}></img>
+                                        <a href={newRedirect[newIndex]}>
+                                            <img src={newImage}></img>
+                                        </a>
                                     </div>
                                 </SwiperSlide>
                             )
@@ -90,11 +109,13 @@ function CardSection() {
                     slidesPerGroup={5}
                     navigation
                     >
-                        {acclaimedCard.length && acclaimedCard.map((acclaimedImage) => {
+                        {acclaimedCard.length && acclaimedCard.map((acclaimedImage, acclaimedIndex) => {
                             return (
                                 <SwiperSlide>
                                     <div className="contentSlider__content">
-                                        <img src={acclaimedImage}></img>
+                                        <a href={acclaimedRedirect[acclaimedIndex]}>
+                                            <img src={acclaimedImage}></img>
+                                        </a>
                                     </div>
                                 </SwiperSlide>
                             )
@@ -110,11 +131,13 @@ function CardSection() {
                     slidesPerGroup={5}
                     navigation
                     >
-                        {starWarsCard.length && starWarsCard.map((starWarsImage) => {
+                        {starWarsCard.length && starWarsCard.map((starWarsImage, starWarsIndex) => {
                             return (
                                 <SwiperSlide>
                                     <div className="contentSlider__content">
-                                        <img src={starWarsImage}></img>
+                                        <a href={starWarsRedirect[starWarsIndex]}>
+                                            <img src={starWarsImage}></img>
+                                        </a>
                                     </div>
                                 </SwiperSlide>
                             )

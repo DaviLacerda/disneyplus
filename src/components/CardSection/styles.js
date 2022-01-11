@@ -56,6 +56,12 @@ export const CardsContainer = styled.section`
             .contentSlider__content{
                 width:100%;
                 height:82.5%;
+
+                a{
+                    display:block;
+                    width:fit-content;
+                    height:fit-content;
+                }
                 
                 img{
                     width:100%;
