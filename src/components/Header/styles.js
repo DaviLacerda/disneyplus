@@ -83,6 +83,15 @@ export const StyledHeader = styled.header`
             }
         }
 
+        a{
+            text-decoration:none;
+            color:inherit;
+
+            &:visited{
+                color:inherit;
+            }
+        }
+
         .left__container{
             height:fit-content;
 
@@ -111,12 +120,18 @@ export const StyledHeader = styled.header`
                 }
             }
 
-            a{
-                text-decoration:none;
-                color:inherit;
+            .left__icon{
+                width:100%;
+                height:100%;
 
-                &:visited{
-                    color:inherit;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                
+                path{
+                    fill:#fff;
+                    width:32px !important;
+                    height:32px !important;
                 }
             }
 
@@ -160,21 +175,6 @@ export const StyledHeader = styled.header`
                     background: #fff;
                     transition: width 0.3s ease;
                 }
-            }
-        }
-
-        .left__icon{
-            width:100%;
-            height:100%;
-
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            
-            path{
-                fill:#fff;
-                width:32px !important;
-                height:32px !important;
             }
         }
     }

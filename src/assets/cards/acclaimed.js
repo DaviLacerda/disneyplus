@@ -29,7 +29,7 @@ export default [
     },
     {
         "card":"https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/4A023F73BF30520874455F6D7C887DB8B020482C5F899BD2E21A2ADD9E67DBA1/badging?width=800&aspectRatio=1.78&format=jpeg&label=disneyplusoriginal",
-        "name":"Happier Than Ever: A Love Letter to Los Angeles"
+        "name":"Happier Than Ever A Love Letter to Los Angeles"
     },
     {
         "card":"https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/968C1BDDCC52D358801B4AE0D354E10211F361080F8DADEEAE12D673A0AE262E/badging?width=800&aspectRatio=1.78&format=jpeg&label=disneyplusoriginal",

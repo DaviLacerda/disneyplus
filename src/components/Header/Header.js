@@ -26,12 +26,14 @@ function Header() {
             <div className="left">
                 <div className="left__logo"></div>
 
-                <div className="left__container">
-                    <svg className="left__icon" viewBox="0 0 36 36"> 
-                        <path d="M26.882 19.414v10.454h-5.974v-5.227h-5.974v5.227H8.961V19.414H5.227L17.921 6.72l12.694 12.694h-3.733z"></path>
-                    </svg>
-                    <a href="/"><p>Home</p></a>
-                </div>
+                <a href="/">
+                    <div className="left__container">
+                        <svg className="left__icon" viewBox="0 0 36 36"> 
+                            <path d="M26.882 19.414v10.454h-5.974v-5.227h-5.974v5.227H8.961V19.414H5.227L17.921 6.72l12.694 12.694h-3.733z"></path>
+                        </svg>
+                        <p>Home</p>
+                    </div>
+                </a>
                 
                 <div className="left__container">
                     <svg className="left__icon" viewBox="0 0 36 36">

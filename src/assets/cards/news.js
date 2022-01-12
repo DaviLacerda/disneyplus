@@ -24,8 +24,8 @@ export default [
         "name":"Elena Of Avalor"
     },
     {
-        "card":"https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/06A8DF084D1A97E62C7BDDB2043EA7A2DD74A99BD5192F299A63DCDC8ECBC30F/scale?width=800&aspectRatio=1.78&format=jpeg",
-        "name":"The Rescue"
+        "card":"https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/C8DF7B893EDCCFFDEDB67CBB0D9CF2F33A690A2B35838EC95677819C8C7B8A9A/scale?width=400&aspectRatio=1.78&format=jpeg",
+        "name":"Eternals"
     },
     {
         "card":"https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/A6B98C5A8F8CF619AC90181881D5CC6B54A06E78E44E54F1E3C4FAA22851ABB2/badging?width=800&aspectRatio=1.78&format=jpeg&label=disneyplusoriginal",
