@@ -85,8 +85,71 @@ export const ContentContainer = styled.div`
         padding:16px;
         
         @media(min-width:1081px){
-            top:45%;
+            top:20%;
             left:5%;
+        }
+    }
+
+    .trailer{
+        display:block;
+        width:fit-content;
+        height:fit-content;
+
+        color:inherit;
+        text-decoration:none;
+
+        margin:24px 0 0;
+
+        &:visited{
+            color:inherit;
+        }
+
+        .open{
+            display:flex;
+            flex-direction:row;
+            align-items:center;
+            gap:8px;
+            
+            width:fit-content;
+
+            padding:0 24px;
+
+            border:none;
+            border-radius:4px;
+
+            background-color:#fff;
+            transition:filter .3s;
+
+            &:hover{
+                cursor:pointer;
+                filter:brightness(0.8);
+            }
+
+            .open__text{
+                display:flex;
+                align-items:center;
+
+                font-family:'Nunito', sans-serif;
+                font-size:1.4em;
+                
+                color:#000;
+                height:3em;
+            }
+
+            .open__icon{
+                width:32px;
+                height:3em;
+
+                display:flex;
+                align-items:center;
+                justify-content:center;
+
+                path{
+                    fill:#000;
+                    width:32px;
+                    height:32px;
+                }
+            }
         }
     }
 
