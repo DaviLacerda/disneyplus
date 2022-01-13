@@ -3,7 +3,7 @@ import { SearchContainer } from "./styles";
 import Footer from "../../components/Footer/Footer";
 
 import axios from "axios";
-import { useState } from "react/cjs/react.development";
+import { useState, useEffect } from "react";
 
 function Search() {
     var timeout = null;
