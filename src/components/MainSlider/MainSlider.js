@@ -24,7 +24,7 @@ function MainSlider() {
     function getPoster(param) {   
         setUrl(currentList => [...currentList, param.banner]);
         setLogo(currentList => [...currentList, param.logo]);
-        setRedirect(currentList => [...currentList, param.name.toLowerCase().replace(/\s/g,"-")]);
+        setRedirect(currentList => [...currentList, param.name.toLowerCase().replace(/([ :])/g,"-")]);
     }
 
     useEffect(() => {
@@ -43,10 +43,10 @@ function MainSlider() {
                 autoplay={{delay: 6000}}
                 centeredSlides='true'
             >
-                {url.length !== 0 && url.map((banner, index) => {
+                {url.length !== 0 && url.map((banner, index, keyValue) => {
                     if(index == 0 || index == 5 || index == 6){
                         return (
-                            <SwiperSlide>
+                            <SwiperSlide key={`content__${redirect[index]}`}>
                                 <div className="content">
                                     <a href={redirect[index]}>
                                         <img src={banner}></img>
@@ -57,7 +57,7 @@ function MainSlider() {
                         )
                     }
                     else return (
-                            <SwiperSlide>
+                            <SwiperSlide key={`content__${redirect[index]}`}>
                                 <div className="content">
                                     <a href={redirect[index]}>
                                         <img src={banner}></img>

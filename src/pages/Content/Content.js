@@ -49,7 +49,6 @@ function Content() {
                 }
             }
             if(trailer === undefined){
-                console.log(auxData.name);
                 setTrailer(`https://youtube.com/results?search_query=${auxData.name.replace
                 (/[\u0300-\u036f]/g,'+')}+trailer`)
             }
@@ -81,14 +80,18 @@ function Content() {
 
     window.addEventListener('scroll', () => {
         if(window.scrollY !== 0){
-            const bg = document.getElementsByClassName('content__bg')[0]
-            bg.style.opacity = '0.6';
-            bg.style.filter = 'brightness(0.4)';
+            if(document.getElementsByClassName('content__bg')[0]){
+                const bg = document.getElementsByClassName('content__bg')[0]
+                bg.style.opacity = '0.6';
+                bg.style.filter = 'brightness(0.4)';
+            }
         }
         else{
-            const bg = document.getElementsByClassName('content__bg')[0]
-            bg.style.opacity = '0.8';
-            bg.style.filter = 'brightness(0.525)';
+            if(document.getElementsByClassName('content__bg')[0]){
+                const bg = document.getElementsByClassName('content__bg')[0]
+                bg.style.opacity = '0.8';
+                bg.style.filter = 'brightness(0.525)';
+            }
         }
     })
 

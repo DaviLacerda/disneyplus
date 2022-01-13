@@ -31,26 +31,22 @@ function CardSection() {
     useEffect(() => {
         for(let i = 0; i < RecommendedCards.length ; i++){
             setRecommendedCard(currentList => [...currentList, RecommendedCards[i].card]);
-            setRecommendedRedirect(currentList => [...currentList, RecommendedCards[i].name.toLowerCase().replace
-        (/\s/g,"-")])
+            setRecommendedRedirect(currentList => [...currentList, RecommendedCards[i].name.toLowerCase().replace(/([ :])/g,"-")])
         }
         
         for(let j = 0; j < NewCards.length ; j++){
             setNewCard(currentList => [...currentList, NewCards[j].card]);
-            setNewRedirect(currentList => [...currentList, NewCards[j].name.toLowerCase().replace
-        (/\s/g,"-")])
+            setNewRedirect(currentList => [...currentList, NewCards[j].name.toLowerCase().replace(/([ :])/g,"-")])
         }
 
         for(let k = 0; k < AcclaimedCards.length ; k++){
             setAcclaimedCard(currentList => [...currentList, AcclaimedCards[k].card]);
-            setAcclaimedRedirect(currentList => [...currentList, AcclaimedCards[k].name.toLowerCase().replace
-        (/\s/g,"-")])
+            setAcclaimedRedirect(currentList => [...currentList, AcclaimedCards[k].name.toLowerCase().replace(/([ :])/g,"-")])
         }
 
         for(let s = 0; s < StarWarsCards.length ; s++){
             setStarWarsCard(currentList => [...currentList, StarWarsCards[s].card]);
-            setStarWarsRedirect(currentList => [...currentList, StarWarsCards[s].name.toLowerCase().replace
-        (/\s/g,"-")])
+            setStarWarsRedirect(currentList => [...currentList, StarWarsCards[s].name.toLowerCase().replace(/([ :])/g,"-")])
         }
     }, [])
 
@@ -67,7 +63,7 @@ function CardSection() {
                     >
                         {recommendedCard.length && recommendedCard.map((recommendedImage, recommendedIndex) => {
                             return (
-                                <SwiperSlide>
+                                <SwiperSlide key={`${recommendedRedirect}${recommendedIndex}`}>
                                     <div className="contentSlider__content">
                                         <a href={recommendedRedirect[recommendedIndex]}>
                                             <img src={recommendedImage}></img>
@@ -89,7 +85,7 @@ function CardSection() {
                     >
                         {newCard.length && newCard.map((newImage, newIndex) => {
                             return (
-                                <SwiperSlide>
+                                <SwiperSlide  key={`${newRedirect}${newIndex}`}>
                                     <div className="contentSlider__content">
                                         <a href={newRedirect[newIndex]}>
                                             <img src={newImage}></img>
@@ -111,7 +107,7 @@ function CardSection() {
                     >
                         {acclaimedCard.length && acclaimedCard.map((acclaimedImage, acclaimedIndex) => {
                             return (
-                                <SwiperSlide>
+                                <SwiperSlide key={`${acclaimedRedirect}${acclaimedIndex}`}>
                                     <div className="contentSlider__content">
                                         <a href={acclaimedRedirect[acclaimedIndex]}>
                                             <img src={acclaimedImage}></img>
@@ -133,7 +129,7 @@ function CardSection() {
                     >
                         {starWarsCard.length && starWarsCard.map((starWarsImage, starWarsIndex) => {
                             return (
-                                <SwiperSlide>
+                                <SwiperSlide key={`${starWarsRedirect}${starWarsIndex}`}>
                                     <div className="contentSlider__content">
                                         <a href={starWarsRedirect[starWarsIndex]}>
                                             <img src={starWarsImage}></img>
