@@ -58,7 +58,7 @@ function CardSection() {
                     <Swiper
                     spaceBetween={20}
                     slidesPerView={5}
-                    slidesPerGroup={5}
+                    slidesPerGroup={1}
                     navigation
                     >
                         {recommendedCard.length && recommendedCard.map((recommendedImage, recommendedIndex) => {

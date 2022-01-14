@@ -5,7 +5,7 @@ export const SliderContainer = styled.div`
 
     width:100%;
 
-    margin-top:19.5vh;
+    margin-top:15vh;
 
     @media(min-width:900px){
         margin-top:7.5vh;
@@ -50,6 +50,7 @@ export const SliderContainer = styled.div`
 
             a{
                 position:relative;
+                height:100%;
             }
 
             .overlay{

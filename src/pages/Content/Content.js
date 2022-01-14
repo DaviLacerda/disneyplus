@@ -66,7 +66,6 @@ function Content() {
             let trailerData = trailerResponse.data.results;
             for(let i = 0; i < trailerData.length; i++){
                 if(trailerData[i].name.toLowerCase().includes('trailer')){
-                    console.log(trailer);
                     setTrailer(`https://youtube.com/watch?v=${trailerData[i].key}`)
                     return;
                 }
@@ -76,6 +75,11 @@ function Content() {
                 (/[\u0300-\u036f]/g,'+')}+trailer`)
             }
         }
+    }
+
+    const addWatchList = (span) => {
+        span.classList.toggle('added')
+        span.textContent === '+' ? span.textContent = '✓' : span.textContent = '+'
     }
 
     window.addEventListener('scroll', () => {
@@ -127,14 +131,19 @@ function Content() {
                                 <h1>{data.title || data.original_name}</h1>
                                 <span>{data.media_type} • {runtime} minutes • {release}</span>
                                 <p>{data.overview}</p>
-                                <a href={trailer} className="trailer" target='_blank'>
-                                    <button className="open">
-                                        <svg className="open__icon">
-                                            <path d="M27.147 20.421L11.27 29.274A2.2 2.2 0 0 1 8 27.353V9.647a2.2 2.2 0 0 1 3.271-1.921l15.876 8.852a2.2 2.2 0 0 1 0 3.843z"></path>
-                                        </svg>
-                                        <span className="open__text">Play</span>
+                                <div className="btn__container">
+                                    <a href={trailer} className="trailer" target='_blank'>
+                                        <button className="open">
+                                            <svg className="open__icon">
+                                                <path d="M27.147 20.421L11.27 29.274A2.2 2.2 0 0 1 8 27.353V9.647a2.2 2.2 0 0 1 3.271-1.921l15.876 8.852a2.2 2.2 0 0 1 0 3.843z"></path>
+                                            </svg>
+                                            <span className="open__text">Play</span>
+                                        </button>
+                                    </a>
+                                    <button className="watchlist_add" onClick={(e) => addWatchList(e.target.firstChild)}>
+                                        <span>+</span>
                                     </button>
-                                </a>
+                                </div>
                             </div> 
                         )
                     }            
@@ -153,14 +162,19 @@ function Content() {
                                     )
                                 }
                                 <p>{data.overview}</p>
-                                <a href={trailer} className="trailer" target='_blank'>
-                                    <button className="open">
-                                        <svg className="open__icon">
-                                            <path d="M27.147 20.421L11.27 29.274A2.2 2.2 0 0 1 8 27.353V9.647a2.2 2.2 0 0 1 3.271-1.921l15.876 8.852a2.2 2.2 0 0 1 0 3.843z"></path>
-                                        </svg>
-                                        <span className="open__text">Play</span>
+                                <div className="btn__container">
+                                    <a href={trailer} className="trailer" target='_blank'>
+                                        <button className="open">
+                                            <svg className="open__icon">
+                                                <path d="M27.147 20.421L11.27 29.274A2.2 2.2 0 0 1 8 27.353V9.647a2.2 2.2 0 0 1 3.271-1.921l15.876 8.852a2.2 2.2 0 0 1 0 3.843z"></path>
+                                            </svg>
+                                            <span className="open__text">Play</span>
+                                        </button>
+                                    </a>
+                                    <button className="watchlist_add" onClick={(e) => addWatchList(e.target.firstChild)}>
+                                        <span>+</span>
                                     </button>
-                                </a>
+                                </div>
                             </div> 
                         )
                     }

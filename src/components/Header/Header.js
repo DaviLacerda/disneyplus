@@ -44,10 +44,12 @@ function Header() {
                     </div>
                 </a>
 
-                <div className="left__container">
-                    <span>+</span>
-                    <p>Watchlist</p>
-                </div>
+                <a href="/watchlist">
+                    <div className="left__container">
+                        <span>+</span>
+                        <p>Watchlist</p>
+                    </div>
+                </a>
 
                 <div className="left__container desktop">
                     <svg className="left__icon" viewBox="0 0 36 36">

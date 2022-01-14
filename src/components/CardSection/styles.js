@@ -53,6 +53,11 @@ export const CardsContainer = styled.section`
                 min-height:fit-content;
             }
 
+            .swiper-slide{
+                min-width:120px !important;
+                min-height:120px !important;
+            }
+
             .contentSlider__content{
                 width:100%;
                 height:82.5%;
