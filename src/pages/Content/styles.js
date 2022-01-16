@@ -97,7 +97,7 @@ export const ContentContainer = styled.div`
         flex-wrap:wrap;
         gap:16px;
 
-        margin-top:24px;
+        margin-top:10px;
 
         .added{
             transform:rotate(-330deg);
