@@ -13,24 +13,20 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 
 function MainSlider() {
-    const [url, setUrl] = useState([])
-    const [logo, setLogo] = useState([])
-    const [redirect, setRedirect] = useState([])
+    const [mainSliderContent, setMainSliderContent] = useState([])
 
     SwiperCore.use([Navigation, Autoplay])
 
     let arrayWithBanners = banners;
 
-    function getPoster(param) {   
-        setUrl(currentList => [...currentList, param.banner]);
-        setLogo(currentList => [...currentList, param.logo]);
-        setRedirect(currentList => [...currentList, param.name.toLowerCase().replace(/([ :])/g,"-")]);
+    const getMainSliderContent = (param) => {
+        setMainSliderContent(currentList => [...currentList, param]);
     }
 
     useEffect(() => {
         for(let i = 0; i < arrayWithBanners.length; i++){
-            getPoster(arrayWithBanners[i])
-        }
+            getMainSliderContent(arrayWithBanners[i])
+        }       
     }, [])
 
     return (
@@ -43,25 +39,25 @@ function MainSlider() {
                 autoplay={{delay: 6000}}
                 centeredSlides='true'
             >
-                {url.length !== 0 && url.map((banner, index, keyValue) => {
+                {mainSliderContent.length && mainSliderContent.map((banner, index) => {
                     if(index == 0 || index == 5 || index == 6){
                         return (
-                            <SwiperSlide key={`content__${redirect[index]}`}>
+                            <SwiperSlide key={`content__${banner.name}`}>
                                 <div className="content">
-                                    <a href={redirect[index]}>
-                                        <img src={banner}></img>
-                                        <img src={logo[index]} className="overlay"></img>
+                                <a href={banner.name.toLowerCase().replace(/([ :])/g,"-")}>
+                                        <img src={banner.banner}></img>
+                                        <img src={banner.logo} className="overlay"></img>
                                     </a>
                                 </div>
                             </SwiperSlide>
                         )
                     }
                     else return (
-                            <SwiperSlide key={`content__${redirect[index]}`}>
+                            <SwiperSlide key={`content__${banner.name}`}>
                                 <div className="content">
-                                    <a href={redirect[index]}>
-                                        <img src={banner}></img>
-                                        <img src={logo[index]}></img>
+                                    <a href={banner.name.toLowerCase().replace(/([ :])/g,"-")}>
+                                        <img src={banner.banner}></img>
+                                        <img src={banner.logo}></img>
                                     </a>
                                 </div>
                             </SwiperSlide>

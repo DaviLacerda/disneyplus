@@ -24,16 +24,14 @@ function Content() {
     }
 
     const getDataType = async (data) => {
-        let dataTypeResult = undefined;
-
         if(data.media_type === 'movie'){
-            dataTypeResult = await axios.get(`https://api.themoviedb.org/3/movie/${data.id}?api_key=${process.env.REACT_APP_API_KEY}`)
+            let dataTypeResult = await axios.get(`https://api.themoviedb.org/3/movie/${data.id}?api_key=${process.env.REACT_APP_API_KEY}`)
 
             setDataType(dataTypeResult.data)
             getMovieTrailer(dataTypeResult.data)
         }
         else{
-            dataTypeResult = await axios.get(`https://api.themoviedb.org/3/tv/${data.id}?api_key=${process.env.REACT_APP_API_KEY}`);
+            let dataTypeResult = await axios.get(`https://api.themoviedb.org/3/tv/${data.id}?api_key=${process.env.REACT_APP_API_KEY}`);
 
             setDataType(dataTypeResult.data)
             getTvTrailer(dataTypeResult.data)
