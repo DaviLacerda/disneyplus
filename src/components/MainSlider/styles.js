@@ -63,8 +63,6 @@ export const SliderContainer = styled.div`
             }
 
             img:not(:last-child){
-                width:100%;
-                height:100%;
                 max-height:500px;
 
                 box-shadow: 0px 7px 17px -1px #000000;

@@ -72,6 +72,8 @@ function CardSection() {
                                                 <img
                                                     src={card.card}
                                                     alt={card.name}
+                                                    width='100%'
+                                                    height='100%'
                                                 ></img>
                                             </a>
                                         </div>
@@ -102,6 +104,8 @@ function CardSection() {
                                                 <img
                                                     src={card.card}
                                                     alt={card.name}
+                                                    width='100%'
+                                                    height='100%'
                                                 ></img>
                                             </a>
                                         </div>
@@ -132,6 +136,8 @@ function CardSection() {
                                                 <img
                                                     src={card.card}
                                                     alt={card.name}
+                                                    width='100%'
+                                                    height='100%'
                                                 ></img>
                                             </a>
                                         </div>
@@ -162,6 +168,8 @@ function CardSection() {
                                                 <img
                                                     src={card.card}
                                                     alt={card.name}
+                                                    width='100%'
+                                                    height='100%'
                                                 ></img>
                                             </a>
                                         </div>
