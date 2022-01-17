@@ -10,58 +10,73 @@ function Search() {
     var isReady = true;
     var link = undefined;
 
-    const [display, setDisplay] = useState([])
+    const [display, setDisplay] = useState(undefined);
 
-    async function searchApi(input) {
-        if(input === ''){
-            let content = document.getElementsByClassName('content__display')[0]
-            content.style.display = 'none';
-        }
+    const searchApi = async (input) => {
+        let contentContainer =
+            document.getElementsByClassName("content__display")[0];
+        clearInterval(timeout);
 
-        else{
-            let content = document.getElementsByClassName('content__display')[0]
-            content.style.display = 'flex';
+        if (input !== "") {
+            contentContainer.style.display = "flex";
             clearInterval(timeout);
 
-            timeout = setInterval(async function() {
-                if(isReady == true){
-                    let response = await axios.get(`https://api.themoviedb.org/3/search/multi?api_key=${process.env.REACT_APP_API_KEY}&query=${input}&include_adult=false`);
-                    if(response.data.results !== []){
-                        setDisplay(response.data.results);
-                    }
+            timeout = setInterval(async function () {
+                if (isReady == true) {
+                    getArrayWithResult(input);
                     isReady = false;
                 }
             }, 1000);
+        } else {
+            contentContainer.style.display = "none";
         }
-    }
-    
+    };
+
+    const getArrayWithResult = async (input) => {
+        let response = await axios.get(
+            `https://api.themoviedb.org/3/search/multi?api_key=${process.env.REACT_APP_API_KEY}&query=${input}&include_adult=false`
+        );
+
+        response.data.results !== [] && setDisplay(response.data.results);
+    };
+
     return (
         <>
             <Header></Header>
             <SearchContainer>
-                <input type='text' placeholder="Search by title" onInput={(e) => searchApi(e.target.value)}></input>
+                <input
+                    type="text"
+                    placeholder="Search by title"
+                    onInput={(e) => searchApi(e.target.value)}
+                ></input>
                 <div className="content__display">
-                    {display !== [] && display.map((index, keyValue) => { 
-                        {index.title && (
-                            link = index.title.toLowerCase().replace(/([ :])/g,"-")
-                        )
-                        index.name && (
-                            link = index.name.toLowerCase().replace(/([ :])/g,"-")
-                        )
-                        }
-                        if(index.poster_path){
-                            return (
-                                <a href={`/${link}`} key={keyValue}>
-                                    <img src={`https://image.tmdb.org/t/p/original${index.poster_path}`}></img>
-                                </a>   
-                            )
-                        }
-                    })}
+                    {display !== undefined &&
+                        display.map((index, keyValue) => {
+                            {
+                                index.title &&
+                                    (link = index.title
+                                        .toLowerCase()
+                                        .replace(/([ :])/g, "-"));
+                                index.name &&
+                                    (link = index.name
+                                        .toLowerCase()
+                                        .replace(/([ :])/g, "-"));
+                            }
+                            if (index.poster_path) {
+                                return (
+                                    <a href={`/${link}`} key={keyValue}>
+                                        <img
+                                            src={`https://image.tmdb.org/t/p/original${index.poster_path}`}
+                                        ></img>
+                                    </a>
+                                );
+                            }
+                        })}
                 </div>
             </SearchContainer>
             <Footer></Footer>
         </>
-    )
+    );
 }
 
 export default Search;
