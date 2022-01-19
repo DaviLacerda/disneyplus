@@ -1,4 +1,15 @@
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
+
+const fadeRightToLeft = keyframes`
+    0%{ 
+        transform: translateX(50px);
+        opacity:0;
+    }
+    100%{ 
+        transform: translateX(0px);
+        opacity:1;
+    }
+`;
 
 export const SliderContainer = styled.div`
     @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&display=swap');
@@ -9,6 +20,14 @@ export const SliderContainer = styled.div`
 
     @media(min-width:900px){
         margin-top:7.5vh;
+    }
+
+    .swiper-slide-active{
+        .content{
+            img:last-child{
+                animation: ${fadeRightToLeft} 1s;
+            }
+        }
     }
 
     .swiper-button-next:hover::after, .swiper-button-prev:hover::after{
